@@ -1,12 +1,14 @@
 import { Button } from '@mui/base';
 import { CardActions, CardContent, CardHeader, TextField } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import CachedIcon from '@mui/icons-material/Cached';
 import "../components/PersonKnowingTenant.css"
 import Navbar from '../Navbar/Navbar';
-const PersonKnowingTenant = () => {
+import { formContext } from '../App'
 
-    const [inputs, setInputs] = useState({});
+const PersonKnowingTenant = () => {
+    const {inputs, setInputs} = useContext(formContext)
+    // const [inputs, setInputs] = useState({});
 
     const handleChange = (event) => {
         console.log(event.target.value)

@@ -1,10 +1,13 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import "../components/TenantsWorkplacedetails.css"
 import Navbar from '../Navbar/Navbar';
 import { useNavigate } from 'react-router-dom';
-const TenantsWorkplacedetails = () => {
+import { formContext } from '../App'
 
-    const [inputs, setInputs] = useState({});
+const TenantsWorkplacedetails = () => {
+    const {inputs, setInputs} = useContext(formContext)
+
+    // const [inputs, setInputs] = useState({});
 
     const handleChange = (event) => {
         console.log(event.target.value)

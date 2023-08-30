@@ -1,10 +1,12 @@
-import React, { useState} from 'react';
+import React, { useState, useContext } from 'react';
 import Navbar from '../Navbar/Navbar';
 import '../components/Home.css'
 import { useNavigate } from 'react-router-dom';
-const Home = () => {
+import { formContext } from '../App'
 
-    const [inputs, setInputs] = useState({});
+const Home = () => {
+    const {inputs, setInputs} = useContext(formContext)
+    // const [inputs, setInputs] = useState({});
 
     const handleChange = (event) => {
         console.log(event.target.value)
