@@ -44,7 +44,7 @@ const TenantInformation = () => {
                     
                 }
 
-
+{/* add otp here  */}
                 <p>OTP Entered - {otp.join("")}</p>
                 <p>
                     <button
