@@ -1,0 +1,35 @@
+/* Update the styles for the specific inputs */
+
+  
+  /* The rest of your styles remain unchanged */
+  .otp-input-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .otp-field {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-top: 50px;
+  }
+  
+  .entered-otp {
+    margin-top: 15px;
+  }
+  
+  .reset-button {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: white;
+  }
+  

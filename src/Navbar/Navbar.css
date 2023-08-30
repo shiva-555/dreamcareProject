@@ -1,0 +1,17 @@
+
+/* Navigation.css */
+nav ul {
+  list-style: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+nav a:hover {
+  background-color: transparent;
+}
+  
+  li {
+    margin: 80px 0;
+    text-decoration: none;
+  }
+  

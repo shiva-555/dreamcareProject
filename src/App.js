@@ -1,24 +1,31 @@
 import logo from './logo.svg';
+import Home from './components/Home'
+import {BrowserRouter,Routes,Route} from "react-router-dom";
+import Navbar from './Navbar/Navbar';
 import './App.css';
-
+import TenantsDetails from './components/TenantsDetails';
+import TenantsWorkplacedetails from './components/TenantsWorkplacedetails';
+import PersonKnowingTenant from './components/PersonKnowingTenant';
+import TenantInformation from './components/TenantInformation';
 function App() {
   return (
+ <div className="home-page">
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />}/>
+      <Route path="/" element={<Navbar/>}/>
+      <Route path="/TenantDetails" element={<TenantsDetails/>}/>
+      <Route path="/TenantWorkplace" element={<TenantsWorkplacedetails/>}/>
+      <Route path="/PersonKnowingTenant" element={<PersonKnowingTenant/>}/>
+      <Route path="/tenantInfomation" element={<TenantInformation/>}/>
+    </Routes>
+  </BrowserRouter>
+   
     </div>
+    </div>
+   
   );
 }
 

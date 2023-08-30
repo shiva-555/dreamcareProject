@@ -1,38 +1,77 @@
-.App {
-  text-align: center;
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+  gap: 40px; /* Gap between columns */
+  margin-top: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.column{
+  display: grid;
+  grid-template-columns: repeat(1,1fr); /* Two columns with equal width */
+  gap: 40px; /* Gap between columns */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-container {
+  max-width: 700px;
+  padding: 20px;
+
+ 
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 29%;
+  padding: 20px;
+  
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Style for form labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: aliceblue;
+}
+
+/* Style for form inputs */
+
+input[type="number"],select{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  background-color:transparent;
+
+}
+
+/* Style for submit button */
+input[type="submit"], input[type="file"]{
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+
 }
 
-.App-link {
-  color: #61dafb;
+/* Hover effect for submit button */
+input[type="submit"]:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.home-page {
+  background-image: url("../public/mahapolice.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+
 }
+
+
