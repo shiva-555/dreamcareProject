@@ -1,10 +1,12 @@
 import { Button } from '@mui/base';
 import { CardActions, CardContent, CardHeader, TextField } from '@mui/material';
 import React, { useState, useEffect, useContext } from 'react';
+import RefreshIcon from '@mui/icons-material/Refresh';
 import CachedIcon from '@mui/icons-material/Cached';
 import "../components/PersonKnowingTenant.css"
 import Navbar from '../Navbar/Navbar';
 import { formContext } from '../App'
+import { useNavigate } from 'react-router-dom';
 
 const PersonKnowingTenant = () => {
     const {inputs, setInputs} = useContext(formContext)
@@ -68,21 +70,29 @@ const PersonKnowingTenant = () => {
           }
 
     };
-    const handleNext = () => {
-        // Perform any necessary validation here
+    const navigate = useNavigate();
 
-        // Redirect to the next page
-        // history.push('/next');
-    };
+      const handleNext = () => {
+
+        const requiredFields = ['personKnowing1name', 'personknowing1contact', 'personKnowing2name', 'personknowing2contact', 'agentName', 'agentDetails', 'tenanatworkpinCode'];
+
+        const emptyFields = requiredFields.filter(field => !inputs[field]);
+        if (emptyFields.length > 0) {
+            alert(`Please fill out the following fields: ${emptyFields.join(', ')}`);
+        } else {
+            navigate('/tenantInfomation');
+        }
+      
+      };
 
     return (
         <>
             <div><Navbar />
-                <h2 style={{ color: "white", marginLeft: "570px", padding: "4px" }}>Person Knowing Tenant</h2>
                 <div>
 
                     <div>
-                        <form onSubmit={handleSubmit} style={{marginTop:"40px"}}>
+                <h2 style={{ color: "white", marginLeft: "570px"}}>Person Knowing Tenant</h2>
+                        <form onSubmit={handleSubmit}>
                             <div className="tenant-form">
                                 <label>Person 1 Name:
                                     <input
@@ -92,6 +102,7 @@ const PersonKnowingTenant = () => {
                                         name="personKnowing1name"
                                         value={inputs.personKnowing1name || ""}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </label>
 
@@ -101,6 +112,7 @@ const PersonKnowingTenant = () => {
                                         name="personknowing1contact"
                                         value={inputs.personknowing1contact || ""}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </label>
 
@@ -112,15 +124,17 @@ const PersonKnowingTenant = () => {
                                         name="personKnowing2name"
                                         value={inputs.personKnowing2name || ""}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </label>
 
                                 <label>Contact number2 :
                                     <input
                                         type="number"
-                                        name="personknowing1contact"
+                                        name="personknowing2contact"
                                         value={inputs.personknowing2contact || ""}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </label>
 
@@ -132,6 +146,7 @@ const PersonKnowingTenant = () => {
                                         name="agentName"
                                         value={inputs.agentName || ""}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </label>
 
@@ -143,15 +158,19 @@ const PersonKnowingTenant = () => {
                                         name="agentDetails"
                                         value={inputs.agentDetails || ""}
                                         onChange={handleChange}
+                                        required
                                     />
                                 </label>
 
                                 <CardActions>
                                     <label style={{ marginRight: "20px" }}>Enter valid Captcha</label>
-                                    <div className='h3'>{captcha}</div>
-                                    <Button
+                                    <div className='h3' style={{color:"white"}}>{captcha}</div>
+                                    <Button 
+                                    
+                                    style={{backgroundColor:"transparent"}}
                                         onClick={() => refreshcaptchaString()}
                                     >
+                                   <RefreshIcon/>
                                     </Button>
                                 </CardActions>
 
@@ -159,6 +178,7 @@ const PersonKnowingTenant = () => {
                                     style={{ backgroundColor: "transparent", color: "white",height:"48px" }}
                                     value={text}
                                     onChange={(event) => setText(event.target.value)}
+                                    required
                                 />
 
                                 <label>
@@ -167,7 +187,7 @@ const PersonKnowingTenant = () => {
                                         type="checkbox"
                                         checked={isChecked}
                                         onChange={handleCheckboxChange}
-                                        
+                                        required
                                     />
                                     I agree Terms & Conditions
                                 </label>
@@ -175,6 +195,7 @@ const PersonKnowingTenant = () => {
                                 <button className='btn-container'
                                     type='submit'
                                     disabled={!isChecked}
+                                    onClick={handleNext}
                                 >
                                     Submit
                                 </button>

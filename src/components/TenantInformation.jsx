@@ -18,7 +18,27 @@ const TenantInformation = () => {
             if (key === 'mobileNumber') {
                 fetch('http://localhost:5000/otp?number=' + inputs[key])
             }
-            html.push(<p>{inputs[key]}</p>)
+            html.push(
+                <div className="container">
+                <table className="my-style">
+                    <thead>
+                        <tr>
+                            <th>Key</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <h1>Tenant complaint form</h1>
+                        {Object.keys(inputs).map((key) => (
+                            <tr key={key}>
+                                <td>{key}</td>
+                                <td>{inputs[key]}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+                </div>
+            );
         }
 
         return html
@@ -55,16 +75,14 @@ const TenantInformation = () => {
 
     return (
         <>
-            <div className='row'>
-                <div className='coltext-center'>
-                    <h2>TenantInformation</h2>
-                    <p>Enter the otp sent to your verify your identity</p>
-
+           
+             
+                    <h2 style={{marginLeft:"500px",padding:"150px",color:"white"}}>Tenant Information</h2>
+                    
                     {
-                
                         otp.map((data, index) => {
                             return <TextField
-                            style={{marginTop:"220px"}}
+                            style={{marginTop:"-100px",left:"650px"}}
                                 className='otp-field'
                                 type='text'
                                 name="otp"
@@ -73,33 +91,35 @@ const TenantInformation = () => {
                                 value={data}
                                 onChange={(e) => handleChange(e.target, index)}
                                 onFocus={e => e.target.select()}
+                                required
                             />
                         })
                         
                     }
 
     {/* add otp here  */}
-                    <p>OTP Entered - {otp.join("")}</p>
+                    <p style={{marginLeft:"660px",marginTop:"-50px",color:"white",marginBottom:"10px"}}>OTP Entered - {otp.join("")}</p>
                     <p>
                         <button
-                            className="btn btn-secondary mr-2"
+                            className="reset-button"
                             onClick={e => setOtp([...otp.map(v => "")])}
                         >
                             Reset
                         </button>
                         <button
-                            className="btn btn-primary"
+                            className="submit-button"
                             onClick={e =>
                                 // alert("Entered OTP is " + otp.join(""))
+                                
                                 exportPDF()
                             }
                         >
                             Submit
                         </button>
                     </p>
-                </div>
+                
 
-            </div>
+           
         </>
     );
 }

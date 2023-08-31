@@ -31,7 +31,17 @@ const TenantsDetails = () => {
      const navigate = useNavigate();
 
      const handleNext = () => { 
-       navigate('/TenantWorkplace');
+
+        const requiredFields = ['tenanatName', 'tenanatAddress', 'tenanatcityDistrict', 'tenanatsTate', 'identiproofTenant', 'tenantIdproofNum', 'tenanatpinCode', 'pinCode'];
+
+        const emptyFields = requiredFields.filter(field => !inputs[field]);
+        if (emptyFields.length > 0) {
+            alert(`Please fill out the following fields: ${emptyFields.join(', ')}`);
+        } else {
+   
+            navigate('/TenantWorkplace');
+        }
+      
      };
     
     return (
@@ -40,9 +50,9 @@ const TenantsDetails = () => {
 
       <h2 style={{color:"white",marginLeft:"570px",padding:"4px"}}>Tenant's Details</h2>
       
-    <div>
+   
     
-        <form onSubmit={handleSubmit} style={{marginTop:"16px"}}>
+        <form onSubmit={handleSubmit} >
         <div className="tenant-form">
         <label>Tenant′s Name:
                     <input
@@ -50,6 +60,7 @@ const TenantsDetails = () => {
                         name="tenanatName"
                         value={inputs.tenanatName || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -66,6 +77,7 @@ const TenantsDetails = () => {
                         name="tenanatAddress"
                         value={inputs.tenanatAddress || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -75,6 +87,7 @@ const TenantsDetails = () => {
                         name="tenanatcityDistrict"
                         value={inputs.tenanatcityDistrict || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -84,6 +97,7 @@ const TenantsDetails = () => {
                         name="tenanatsTate"
                         value={inputs.tenanatsTate || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -94,6 +108,7 @@ const TenantsDetails = () => {
                         value={inputs.identiproofTenant || ""}
                         onChange={handleChange}
                         style={{color:"white"}}
+                        required
                     >
                         <option value="">Identity Proof of Tenant</option>
                         <option value="AdharCard">Adhar Card</option>
@@ -111,6 +126,7 @@ const TenantsDetails = () => {
                         name="tenantIdproofNum"
                         value={inputs.tenantIdproofNum || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -120,13 +136,14 @@ const TenantsDetails = () => {
                         name="tenanatpinCode"
                         value={inputs.tenanatpinCode || ""}
                         onChange={handleChange}
+                        required
                     />
+                <button type="button"  onClick={handleNext}>Next</button>
                 </label>
 
                 </div>
-                <button type="button" style={{width:"200px",height:"50px",marginBottom:"80px",marginLeft:"570px"}} onClick={handleNext}>Next</button>
             </form>
-    </div>
+    
     </div>
     </>
   );

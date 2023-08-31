@@ -7,11 +7,12 @@ nav ul {
 }
 
 nav a:hover {
-  background-color: transparent;
+  background-color:royalblue;
+  width:50px;
 }
   
   li {
-    margin: 80px 0;
+    margin: 120px 0;
     text-decoration: none;
   }
   

@@ -45,7 +45,7 @@ input[type="number"],select{
   border-radius: 3px;
   font-size: 14px;
   background-color:transparent;
-
+  color:white;
 }
 
 /* Style for submit button */

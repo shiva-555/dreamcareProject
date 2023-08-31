@@ -33,8 +33,18 @@ const TenantsWorkplacedetails = () => {
       
    
         // Redirect to the next page
+
+        const requiredFields = ['tenanatWorkmobileNumber', 'tenantworkemailId', 'tenanatOccupation', 'tenanatworkAddress', 'tenanatworkcityDistrict', 'tenanatworksTate', 'tenanatworkpinCode'];
+
+        const emptyFields = requiredFields.filter(field => !inputs[field]);
+        if (emptyFields.length > 0) {
+            alert(`Please fill out the following fields: ${emptyFields.join(', ')}`);
+        } else {
+   
+            navigate('/PersonKnowingTenant');
+        }
         
-        navigate('/PersonKnowingTenant');
+       
       };
 
 
@@ -51,6 +61,7 @@ const TenantsWorkplacedetails = () => {
                         name="tenanatWorkmobileNumber"
                         value={inputs.tenanatWorkmobileNumber || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -61,6 +72,7 @@ const TenantsWorkplacedetails = () => {
                         name="tenantworkemailId"
                         value={inputs.tenantworkemailId || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -72,6 +84,7 @@ const TenantsWorkplacedetails = () => {
                         name="tenanatOccupation"
                         value={inputs.tenanatOccupation || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -82,6 +95,7 @@ const TenantsWorkplacedetails = () => {
                         name="tenanatworkAddress"
                         value={inputs.tenanatworkAddress || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -91,6 +105,7 @@ const TenantsWorkplacedetails = () => {
                         name="tenanatworkcityDistrict"
                         value={inputs.tenanatworkcityDistrict || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -100,6 +115,7 @@ const TenantsWorkplacedetails = () => {
                         name="tenanatworksTate"
                         value={inputs.tenanatworksTate || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -110,6 +126,7 @@ const TenantsWorkplacedetails = () => {
                         name="tenanatworkpinCode"
                         value={inputs.tenanatworkpinCode || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 

@@ -32,10 +32,15 @@ const Home = () => {
 
       const handleNext = () => {
        
-    
-        // Redirect to the next page
+        const requiredFields = ['policeStation', 'fullName', 'mobileNumber', 'emailId', 'address', 'cityDistrict', 'state', 'pinCode'];
+
+        const emptyFields = requiredFields.filter(field => !inputs[field]);
+        if (emptyFields.length > 0) {
+            alert(`Please fill out the following fields: ${emptyFields.join(', ')}`);
+        } else {
+            navigate('/TenantDetails');
+        }
         
-        navigate('/TenantDetails');
       };
     return (
 
@@ -51,12 +56,12 @@ const Home = () => {
                         name="policeStation"
                         value={inputs.policeStation || ""}
                         onChange={handleChange}
-                        style={{color:"white"}}
+                        required
                     >
-                        <option value="">Select a name</option>
-                        <option value="Hinjewadi">Hinjewadi</option>
-                        <option value="Baner">Baner</option>
-                        <option value="ShivajiNagar">ShivajiNagar</option>
+                        <option  style={{backgroundColor:"royalblue"}} value="">Select a name</option>
+                        <option   style={{backgroundColor:"royalblue"}} value="Hinjewadi">Hinjewadi</option>
+                        <option  style={{backgroundColor:"royalblue"}} value="Baner">Baner</option>
+                        <option  style={{backgroundColor:"royalblue"}} value="ShivajiNagar">ShivajiNagar</option>
                         {/* Add more options as needed */}
                     </select>
                 </label>
@@ -76,6 +81,7 @@ const Home = () => {
                         name="fullName"
                         value={inputs.fullName || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
                 
@@ -86,6 +92,7 @@ const Home = () => {
                         name="mobileNumber"
                         value={inputs.mobileNumber || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -96,6 +103,7 @@ const Home = () => {
                         name="emailId"
                         value={inputs.emailId || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -106,6 +114,7 @@ const Home = () => {
                         name="address"
                         value={inputs.address || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -115,15 +124,17 @@ const Home = () => {
                         name="cityDistrict"
                         value={inputs.cityDistrict || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
                 <label>State:
                     <input
                         type="text"
-                        name="sTate"
-                        value={inputs.sTate || ""}
+                        name="state"
+                        value={inputs.state || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
@@ -134,10 +145,11 @@ const Home = () => {
                         name="pinCode"
                         value={inputs.pinCode || ""}
                         onChange={handleChange}
+                        required
                     />
                 </label>
 
-                <button type="button" style={{backgroundColor:"ivory white",width:"200px",height:"50px",marginTop:"20px"}} onClick={handleNext}>Next</button>
+                <button type="button" style={{backgroundColor:"royalblue",width:"200px",height:"50px",marginTop:"20px"}} onClick={handleNext}>Next</button>
             </form>
 
         </div>

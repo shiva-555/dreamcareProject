@@ -8,14 +8,14 @@
   
   /* Styling for the form container */
   .tenant-form {
-    max-width: 600px; /* Adjust the width as needed */
-    margin: 0 auto;
+    max-width: 600px; 
+   margin: 0 auto;
     padding: 20px;
     background-color:transparent;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
-    gap: 40px; /* Gap between columns */
-    margin-top: -20px;
+     grid-template-columns: repeat(2, 1fr);
+    gap: 40px; 
+    margin-bottom: 600px;
    
   }
   
@@ -64,11 +64,6 @@
     margin-bottom: auto;
  }
   
- .h3 {
-    color: #fff;
-
-    background-color: transparent;
- }
 
  .btn-container {
     background-color: transparent;
