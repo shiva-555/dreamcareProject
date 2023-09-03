@@ -1,13 +1,30 @@
 import React, { useState } from 'react';
 import '../components/Login.css'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-   
+    try {
+      const result = await axios.post('http://localhost:5000/login', {
+        username,
+        password
+      });
+      if (result?.data?.message === 'logged in successfully') {
+        window.localStorage.setItem('user', JSON.stringify(result.data.data.user))
+        window.localStorage.setItem('token', JSON.stringify(result.data.data.token))
+        navigate('/complaints');
+      }
+    } catch (e) {
+      if (e?.message) {
+        return alert(e.message);
+      }
+    }
   };
 
   return (

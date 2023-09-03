@@ -7,7 +7,7 @@ import "../components/PersonKnowingTenant.css"
 import Navbar from '../Navbar/Navbar';
 import { formContext } from '../App'
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios'
 
 // hook
 
@@ -15,6 +15,7 @@ import {useComplaint} from '../helpers/hooks/policeComplainthook.js'
 
 const PersonKnowingTenant = () => {
     const {inputs, setInputs} = useContext(formContext)
+    const navigate = useNavigate();
     // const [inputs, setInputs] = useState({});
 
     const handleChange = (event) => {
@@ -38,7 +39,6 @@ const PersonKnowingTenant = () => {
     const [text, setText] = useState("")
     const [valid, setValid] = useState(false)
     const [success, setSuccess] = useState(false)
-
   
     const refreshcaptchaString = () => {
         setCaptcha(Math.random().toString(36).slice(8))
@@ -53,9 +53,16 @@ const PersonKnowingTenant = () => {
         setIsChecked(!isChecked);
       };
 
-    const handleSubmit = (event) => {
-        console.log(inputs)
+    const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const requiredFields = ['personKnowing1name', 'personknowing1contact', 'personKnowing2name', 'personknowing2contact', 'agentName', 'agentDetails', 'tenanatworkpinCode'];
+
+        const emptyFields = requiredFields.filter(field => !inputs[field]);
+        if (emptyFields.length > 0) {
+            return alert(`Please fill out the following fields: ${emptyFields.join(', ')}`);
+        }
+
         if (text === captcha) {
             setValid(false)
             setSuccess(true)
@@ -70,40 +77,23 @@ const PersonKnowingTenant = () => {
 
         if (isChecked) {
             alert('Form submitted');
-          } else {
-            alert('Please check the checkbox before submitting.');
-          }
+            try {
+                const result = await axios.post('http://localhost:5000/policeComplaint', inputs);
 
-          addRepoliceComplaint.mutate(inputs)
-
-    };
-    const navigate = useNavigate();
-
-      const handleNext = () => {
-
-        const requiredFields = ['personKnowing1name', 'personknowing1contact', 'personKnowing2name', 'personknowing2contact', 'agentName', 'agentDetails', 'tenanatworkpinCode'];
-
-        const emptyFields = requiredFields.filter(field => !inputs[field]);
-        if (emptyFields.length > 0) {
-            alert(`Please fill out the following fields: ${emptyFields.join(', ')}`);
+                if (result?.data?.status) {
+                    navigate('/tenantInfomation');
+                }
+            } catch (e) {
+                console.log(e);
+                if (e?.message) {
+                    alert(e.message);
+                }
+            }
         } else {
-
-            fetch('http://localhost:5000/policeComplaint',{
-                method: 'POST',
-                headers: {
-                  'Content-Type': 'application/json'
-                },
-            })
-            navigate('/tenantInfomation');
+            alert('Please check the checkbox before submitting.');
         }
-
-      
-      };
-
-      const {addRepoliceComplaint} =useComplaint()
-
+    };
    
-
     return (
         <>
             <div><Navbar />
@@ -214,7 +204,6 @@ const PersonKnowingTenant = () => {
                                 <button className='btn-container'
                                     type='submit'
                                     disabled={!isChecked}
-                                    onClick={handleNext}
                                 >
                                     Submit
                                 </button>

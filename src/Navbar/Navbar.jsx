@@ -54,6 +54,11 @@ const Navbar = () => {
             Tenant Information
           </Link>
         </li>
+        <li>
+          <Link to="/complaints" onClick={() => setIsDrawerOpen(false)} style={{textDecoration:"none",color:"white"}}>
+            Complaints
+          </Link>
+        </li>
       </ul>
     </nav>
   </Box>

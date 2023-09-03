@@ -1,260 +1,145 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const tenantInformation = new mongoose.Schema({
+const tenantInformation = new mongoose.Schema(
+  {
     policeStation: {
-        type: String,
-        required: true,
-        unique: true,
-        lowercase: true,
-        trim: true,
+      type: String,
     },
 
     propertyOwnerphoto: {
-        type: String,
-        required: true,
-        trim : true
-
+      type: String,
     },
     fullNamepropertyowner: {
-        type:String,
-        required: true,
-        unique: true,
-        lowercase : true
-      
+      type: String,
     },
 
     mobileNumberPropertyowner: {
-        type:String,
-        required: true,
-        unique: true,
-        lowercase : true
-      
+      type: String,
     },
 
     emailIdpropertyowner: {
-        type:String,
-        required: true,
-        unique: true,
-        lowercase : true
-      
+      type: String,
     },
 
     addressPropetyowner: {
-        type:String,
-        required: true,
-        unique: true,
-        lowercase : true
-      
+      type: String,
     },
 
     cityDistrictPropertyowner: {
-        type:String,
-        required: true,
-        unique: true,
-        lowercase : true
-      
+      type: String,
     },
 
     statePropertyowner: {
-        type:String,
-        required: true,
-        unique: true,
-        lowercase : true
-      
+      type: String,
     },
 
     pinCode: {
-        type:String,
-        required: true,
-        unique: true,
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatName: {
-        type:String,
-        required: true,
-        unique: true,
-        lowercase : true
-      
+      type: String,
     },
 
     tenantPhoto: {
-        type:String,
-        required: true,
-        unique: true,
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatAddress: {
-        type:String,
-        required: true,
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatcityDistrict: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
-    
     tenanatsTate: {
-        type:String,
-        required: true,
-        lowercase : true
-      
+      type: String,
     },
 
     identiproofTenant: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
     tenantIdproofNum: {
-        type:String,
-        required: true,
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatpinCode: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
-    
     tenanatWorkmobileNumber: {
-        type:String,
-        required: true,
-        lowercase : true
-      
+      type: String,
     },
 
     tenantworkemailId: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
-       
     tenanatOccupation: {
-        type:String,
-        required: true,
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatworkAddress: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatworkcityDistrict: {
-        type:String,
-        required: true,
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatworksTate: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatworkcityDistrict: {
-        type:String,
-        required: true,
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatworksTate: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
     tenanatworkpinCode: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
     personKnowing1name: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
     personknowing1contact: {
-        type:Number,
-        required: true, 
-        lowercase : true
-      
+      type: Number,
     },
 
     personKnowing2name: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
     personknowing2contact: {
-        type:Number,
-        required: true, 
-        lowercase : true
-      
+      type: Number,
     },
 
     agentName: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
     agentDetails: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
     agentName: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
     agentDetails: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
+      type: String,
     },
 
     otp: {
-        type:String,
-        required: true, 
-        lowercase : true
-      
-    }
-}, { timestamps: true })
+      type: String,
+    },
+  },
+  { timestamps: true }
+);
 
-module.exports = mongoose.model('tenant', tenantInformation)
+module.exports = mongoose.model("tenant", tenantInformation);
