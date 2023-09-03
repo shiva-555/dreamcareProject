@@ -17,12 +17,8 @@
     margin: 0 5px;
     border: 1px solid #ced4da;
     border-radius: 4px;
-    margin-top: 90px;
-
-   
+    margin-top: 90px; 
   }
-  
-
   
   .reset-button {
     background-color: #007bff;
@@ -56,4 +52,37 @@
 
 .my-style th {
     background-color: #f2f2f2;
+}
+
+
+
+/* table */
+
+
+
+/* Table Styling */
+.my-table {
+  border-collapse: collapse;
+  width: 100%;
+
+}
+
+.my-table td {
+   border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+ 
+}
+
+
+.my-table th {
+  background-color: #f2f2f2;
+}
+
+.my-table tbody tr:nth-child(even) {
+  color: white;
+}
+
+.my-table tbody tr:hover {
+  background-color: royalblue;
 }

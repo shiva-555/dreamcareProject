@@ -8,6 +8,11 @@ import Navbar from '../Navbar/Navbar';
 import { formContext } from '../App'
 import { useNavigate } from 'react-router-dom';
 
+
+// hook
+
+import {useComplaint} from '../helpers/hooks/policeComplainthook.js'
+
 const PersonKnowingTenant = () => {
     const {inputs, setInputs} = useContext(formContext)
     // const [inputs, setInputs] = useState({});
@@ -69,6 +74,8 @@ const PersonKnowingTenant = () => {
             alert('Please check the checkbox before submitting.');
           }
 
+          addRepoliceComplaint.mutate(inputs)
+
     };
     const navigate = useNavigate();
 
@@ -80,10 +87,22 @@ const PersonKnowingTenant = () => {
         if (emptyFields.length > 0) {
             alert(`Please fill out the following fields: ${emptyFields.join(', ')}`);
         } else {
+
+            fetch('http://localhost:5000/policeComplaint',{
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+            })
             navigate('/tenantInfomation');
         }
+
       
       };
+
+      const {addRepoliceComplaint} =useComplaint()
+
+   
 
     return (
         <>

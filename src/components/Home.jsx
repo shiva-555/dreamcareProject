@@ -26,13 +26,15 @@ const Home = () => {
         event.preventDefault();
       };
 
+     
+
     //   when click on next button it redirect to the route
 
     const navigate = useNavigate();
 
       const handleNext = () => {
        
-        const requiredFields = ['policeStation', 'fullName', 'mobileNumber', 'emailId', 'address', 'cityDistrict', 'state', 'pinCode'];
+        const requiredFields = ['policeStation', 'fullNamepropertyowner', 'mobileNumberPropertyowner', 'emailIdpropertyowner', 'addressPropetyowner', 'cityDistrictPropertyowner', 'statePropertyowner', 'pinCodepropertyowner'];
 
         const emptyFields = requiredFields.filter(field => !inputs[field]);
         if (emptyFields.length > 0) {
@@ -66,9 +68,8 @@ const Home = () => {
                     </select>
                 </label>
 
-                <label>
-                    Property Owner's Photo:
-          <input type="file" onChange={handleFileChange} />
+                <label>Property Owner's Photo:
+          <input name="propertyOwnerphoto" type="file" onChange={handleFileChange}/>
            <button onClick={handleSubmit}>Upload</button>
            </label>
                 
@@ -78,8 +79,8 @@ const Home = () => {
                         className='fullname-container'
                         style={{width:"100%"}}
                         type="text"
-                        name="fullName"
-                        value={inputs.fullName || ""}
+                        name="fullNamepropertyowner"
+                        value={inputs.fullNamepropertyowner || ""}
                         onChange={handleChange}
                         required
                     />
@@ -89,8 +90,8 @@ const Home = () => {
                 <label>Mobile Number:
                     <input
                         type="number"
-                        name="mobileNumber"
-                        value={inputs.mobileNumber || ""}
+                        name="mobileNumberPropertyowner"
+                        value={inputs.mobileNumberPropertyowner || ""}
                         onChange={handleChange}
                         required
                     />
@@ -100,8 +101,8 @@ const Home = () => {
                 <label>Email Id:
                     <input
                         type="text"
-                        name="emailId"
-                        value={inputs.emailId || ""}
+                        name="emailIdpropertyowner"
+                        value={inputs.emailIdpropertyowner || ""}
                         onChange={handleChange}
                         required
                     />
@@ -111,8 +112,8 @@ const Home = () => {
                 <label>Address:
                     <input
                         type="text"
-                        name="address"
-                        value={inputs.address || ""}
+                        name="addressPropetyowner"
+                        value={inputs.addressPropetyowner || ""}
                         onChange={handleChange}
                         required
                     />
@@ -121,8 +122,8 @@ const Home = () => {
                 <label>City/District:
                     <input
                         type="text"
-                        name="cityDistrict"
-                        value={inputs.cityDistrict || ""}
+                        name="cityDistrictPropertyowner"
+                        value={inputs.cityDistrictPropertyowner || ""}
                         onChange={handleChange}
                         required
                     />
@@ -131,8 +132,8 @@ const Home = () => {
                 <label>State:
                     <input
                         type="text"
-                        name="state"
-                        value={inputs.state || ""}
+                        name="statePropertyowner"
+                        value={inputs.statePropertyowner || ""}
                         onChange={handleChange}
                         required
                     />
@@ -142,8 +143,8 @@ const Home = () => {
                     <input
                     
                         type="text"
-                        name="pinCode"
-                        value={inputs.pinCode || ""}
+                        name="pinCodepropertyowner"
+                        value={inputs.pinCodepropertyowner|| ""}
                         onChange={handleChange}
                         required
                     />

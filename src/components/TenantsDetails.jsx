@@ -32,7 +32,7 @@ const TenantsDetails = () => {
 
      const handleNext = () => { 
 
-        const requiredFields = ['tenanatName', 'tenanatAddress', 'tenanatcityDistrict', 'tenanatsTate', 'identiproofTenant', 'tenantIdproofNum', 'tenanatpinCode', 'pinCode'];
+        const requiredFields = ['tenanatName', 'tenanatAddress', 'tenanatcityDistrict', 'tenanatsTate', 'identiproofTenant', 'tenantIdproofNum', 'tenanatpinCode', 'tenanatpinCode'];
 
         const emptyFields = requiredFields.filter(field => !inputs[field]);
         if (emptyFields.length > 0) {
@@ -50,9 +50,9 @@ const TenantsDetails = () => {
 
       <h2 style={{color:"white",marginLeft:"570px",padding:"4px"}}>Tenant's Details</h2>
       
-   
+ 
     
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}>
         <div className="tenant-form">
         <label>Tenant′s Name:
                     <input
@@ -66,7 +66,7 @@ const TenantsDetails = () => {
 
                 <label>
                     Tenant's Photo:
-          <input type="file" onChange={handleFileChange} />
+          <input name="tenantPhoto" type="file" onChange={handleFileChange} />
            <button onClick={handleSubmit}>Upload</button>
            </label>
               
