@@ -29,6 +29,15 @@
  height:30px;
 
   }
+
+  .container {
+    margin-left: 120px;
+  
+  }
+
+  .my-style{
+    display: inline;
+  }
   
   .submit-button {
     background-color: #007bff;

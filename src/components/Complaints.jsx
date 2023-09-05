@@ -42,15 +42,16 @@ function Complaints() {
         <div><Navbar /></div>
 
         <div>
-            <input type="text" style={{width: '200px'}} onChange={(e) => {
+        <h1 style={{color:"white",marginLeft:"790px"}}>Complaints</h1>
+            <input type="text" style={{width: '200px',marginLeft:"1240px",marginRight:"20px",borderRadius:"10px"}} onChange={(e) => {
                 setSearch(e.target.value)
             }}/>    
-            <button onClick={async () => {
+            <button style={{backgroundColor:"royalblue",width:"150px",height:"50px",marginTop:"20px",borderRadius:"30px"}} onClick={async () => {
                 await fetchComplaints(search)
             }}>Search</button>
         </div>
 
-        <TableContainer  sx={{ overflow: 'auto', marginTop: 4, maxHeight: 600, background: 'white' }}>
+        <TableContainer  sx={{ overflow: 'auto', marginTop: 4, maxHeight: 600, background: 'white',width:"1500px",marginLeft:"150px" }}>
           <Table stickyHeader aria-label="sticky table">
             <TableHead style={{ backgroundColor: "#243c80", background: "white" }}>
 

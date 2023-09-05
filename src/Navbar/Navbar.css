@@ -4,15 +4,17 @@ nav ul {
   list-style: none;
   padding: 0;
   background-color: transparent;
+  font-size: large;
 }
 
 nav a:hover {
-  background-color:royalblue;
-  width:50px;
+  background-color:skyblue;
+  width:450px;
 }
   
   li {
-    margin: 120px 0;
+    margin: 60px 0;
     text-decoration: none;
+    font-size:large;
   }
   

@@ -39,7 +39,7 @@ const TenantInformation = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    <h1>Tenant complaint form</h1>
+                  <h3>Complaint Form</h3>
                     {tr}
                     </tbody>
                 </table>
